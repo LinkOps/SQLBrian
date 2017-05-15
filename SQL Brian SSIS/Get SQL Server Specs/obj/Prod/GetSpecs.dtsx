@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/9/2017 11:14:36 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SHG-LT-006444"
+  DTS:CreatorName="NEXUS\CulverM1"
+  DTS:DTSID="{8169E2F1-3410-4BEE-8042-90B98D201702}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="13.0.2164.0"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="100"
+  DTS:ObjectName="GetSpecs"
+  DTS:PackageType="5"
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{3A83A206-9FF0-42F4-AD65-AA8C11D3916F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DynamicServerConnection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6853621C-A36F-4BAC-8DED-70D58A65A1D8}"
+      DTS:ObjectName="DynamicServerConnection">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">"master"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::ProcessingServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ProcTest;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL_Brian]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+      DTS:ObjectName="SQL_Brian">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::SQL_Brian_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::SQL_Brian_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=V-AWD-DBASQL-01;Initial Catalog=SQL_Brian;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C2F99B59-272E-4235-A829-AC6EB530769F}"
+      DTS:ObjectName="SQL_Brian_InitialCatalog"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SQL_Brian</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{31F35DE3-D1BD-4CFE-980D-86947DBB898B}"
+      DTS:ObjectName="SQL_Brian_ServerName"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">V-AWD-DBASQL-01</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{23645270-D6B3-4D04-B602-6F624DAFA5C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BuildNo">
+      <DTS:VariableValue
+        DTS:DataType="8">10.00.5542.0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE2AC3A9-9EF0-4C62-8741-9DB283D78ECD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Cores">
+      <DTS:VariableValue
+        DTS:DataType="20">4</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B1AB98A-E9E1-439B-8439-ADA9F7D21013}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IPAddress">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C64C9E7B-E1CF-4B4D-8038-452AD8FB742A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MajorVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">10</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB18D52A-7105-412B-9E2F-6FC90BF36EB9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Memory">
+      <DTS:VariableValue
+        DTS:DataType="14">30.51</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AFFAF5F8-47CD-40D6-A2E4-97B753B88037}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MSEditionId">
+      <DTS:VariableValue
+        DTS:DataType="20">-1534726760</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{98CF7E2E-82D3-4E0E-B796-272A0FCE5795}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ProcessingServerName">
+      <DTS:VariableValue
+        DTS:DataType="8">ProcTest</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA45F10F-F671-43D5-974C-B89388B67A83}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ServerId">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A8725B28-DAD0-41B7-BBB5-45CE05CD543B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ServerName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{1E9096CD-2A8D-47A2-BD08-C597CBFF3E5F}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="100"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.SqlServer.Dts.Runtime.Enumerators.ADO.ForEachADOEnumerator, Microsoft.SqlServer.ForEachADOEnumerator, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+        DTS:DTSID="{9B7EF98B-4179-49D3-BB45-F5025B445F06}"
+        DTS:ObjectName="{9B7EF98B-4179-49D3-BB45-F5025B445F06}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::ServerName" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\2012 and Later"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{A4DDBBE0-0D3D-4939-A179-AB4DF6B85821}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="2012 and Later">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\2012 and Later\Flag Unresponsive Servers"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{14C6DC57-F5F9-4B36-AA86-208AB736A9AA}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Flag Unresponsive Servers"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE Server SET ServerStatusId = 5 WHERE ServerId = " +  (DT_WSTR, 3)  @[User::ServerId] + ";"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+                  SQLTask:SqlStatementSource="UPDATE Server SET ServerStatusId = 5 WHERE ServerId = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\2012 and Later\Get Stats"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{B01A705C-6D1F-4786-B330-823ECCF673B9}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:MaxErrorCount="100"
+              DTS:ObjectName="Get Stats"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{6853621C-A36F-4BAC-8DED-70D58A65A1D8}"
+                  SQLTask:SqlStatementSource="SELECT&#xA;&#x9;CONNECTIONPROPERTY('local_net_address') as IP_Address,&#xA;&#x9;ROUND(CAST(physical_memory_kb AS float)/1024/1024,2) AS Memory,&#xA;&#x9;cpu_count AS Cores,&#xA;&#x9;SERVERPROPERTY('EditionId') as MSEditionId,&#xA;&#x9;SERVERPROPERTY('productversion') as BuildNo&#xA;FROM &#xA;&#x9;sys.dm_os_sys_info"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="IP_Address"
+                    SQLTask:DtsVariableName="User::IPAddress" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="Memory"
+                    SQLTask:DtsVariableName="User::Memory" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="Cores"
+                    SQLTask:DtsVariableName="User::Cores" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="MSEditionId"
+                    SQLTask:DtsVariableName="User::MSEditionId" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="BuildNo"
+                    SQLTask:DtsVariableName="User::BuildNo" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\2012 and Later\Update Server Details"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{1d9afc92-1ee6-4f11-920c-497195d85662}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Server Details"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE Server SET IPAddress = '" + @[User::IPAddress] + "', InstanceRAM = '" +  (DT_WSTR, 10)  @[User::Memory] + "', CPUCores = " +  (DT_WSTR, 3)  @[User::Cores] + ", EditionId = (SELECT EditionId FROM Edition WHERE MSEditionId = " + (DT_WSTR, 20) @[User::MSEditionId] + "), BuildNoId = (SELECT BuildNoId FROM BuildNo WHERE BuildNo = '" + @[User::BuildNo] + "' OR REPLACE('" + @[User::BuildNo] + "','.0.','.00.') LIKE BuildNo + '%'), LastUpdated = Current_Timestamp WHERE ServerId = " + @[User::ServerId] + ";"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+                  SQLTask:SqlStatementSource="UPDATE Server SET IPAddress = '', InstanceRAM = '30.51', CPUCores = 4, EditionId = (SELECT EditionId FROM Edition WHERE MSEditionId = -1534726760), BuildNoId = (SELECT BuildNoId FROM BuildNo WHERE BuildNo = '10.00.5542.0' OR REPLACE('10.00.5542.0','.0.','.00.') LIKE BuildNo + '%'), LastUpdated = Current_Timestamp WHERE ServerId = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\2012 and Later.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{A2DE32DD-80ED-4EE7-9E84-D134A5838E73}"
+              DTS:From="Package\Foreach Loop Container\2012 and Later\Get Stats"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Foreach Loop Container\2012 and Later\Update Server Details" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\2012 and Later.PrecedenceConstraints[Constraint 4]"
+              DTS:CreationName=""
+              DTS:DTSID="{EF3E7E3D-C24B-45AC-AB10-82CC1E0AF4CD}"
+              DTS:From="Package\Foreach Loop Container\2012 and Later\Get Stats"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 4"
+              DTS:To="Package\Foreach Loop Container\2012 and Later\Flag Unresponsive Servers"
+              DTS:Value="1" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Earlier Versions"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{DC2C392E-ABB3-4FEC-B134-E19256B0BF0E}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Earlier Versions">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Earlier Versions\Flag Unresponsive Servers"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{de06b873-d54e-4c80-bee8-53f2b8a83bdb}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Flag Unresponsive Servers"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE Server SET ServerStatusId = 5 WHERE ServerId = " +  (DT_WSTR, 3)  @[User::ServerId] + ";"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+                  SQLTask:SqlStatementSource="UPDATE Server SET ServerStatusId = 5 WHERE ServerId = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Earlier Versions\Get Stats"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A4A517BF-EEF9-40D5-96D1-FB20D58CBC1E}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get Stats"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{6853621C-A36F-4BAC-8DED-70D58A65A1D8}"
+                  SQLTask:SqlStatementSource="SELECT&#xA;&#x9;CONNECTIONPROPERTY('local_net_address') as IP_Address,&#xA;&#x9;ROUND(CAST(physical_memory_in_bytes AS float)/8/1024/1024,2) AS Memory,&#xA;&#x9;cpu_count AS Cores,&#xA;&#x9;SERVERPROPERTY('EditionId') as MSEditionId,&#xA;&#x9;SERVERPROPERTY('productversion') as BuildNo&#xA;FROM &#xA;&#x9;sys.dm_os_sys_info"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="IP_Address"
+                    SQLTask:DtsVariableName="User::IPAddress" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="Memory"
+                    SQLTask:DtsVariableName="User::Memory" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="Cores"
+                    SQLTask:DtsVariableName="User::Cores" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="MSEditionId"
+                    SQLTask:DtsVariableName="User::MSEditionId" />
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="BuildNo"
+                    SQLTask:DtsVariableName="User::BuildNo" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container\Earlier Versions\Update Server Details"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{2F7C1606-232D-46A4-BC14-ED66E89300F4}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Server Details"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE Server SET IPAddress = '" + @[User::IPAddress] + "', InstanceRAM = '" +  (DT_WSTR, 10)  @[User::Memory] + "', CPUCores = " +  (DT_WSTR, 3)  @[User::Cores] + ", EditionId = (SELECT EditionId FROM Edition WHERE MSEditionId = " + (DT_WSTR, 20) @[User::MSEditionId] + "), BuildNoId = (SELECT BuildNoId FROM BuildNo WHERE BuildNo = '" + @[User::BuildNo] + "' OR REPLACE('" + @[User::BuildNo] + "','.0.','.00.') LIKE BuildNo + '%'), LastUpdated = Current_Timestamp WHERE ServerId = " + @[User::ServerId] + ";"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+                  SQLTask:SqlStatementSource="UPDATE Server SET IPAddress = '', InstanceRAM = '30.51', CPUCores = 4, EditionId = (SELECT EditionId FROM Edition WHERE MSEditionId = -1534726760), BuildNoId = (SELECT BuildNoId FROM BuildNo WHERE BuildNo = '10.00.5542.0' OR REPLACE('10.00.5542.0','.0.','.00.') LIKE BuildNo + '%'), LastUpdated = Current_Timestamp WHERE ServerId = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Earlier Versions.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{638FC901-1E8B-4998-AF6A-50D6D5335F90}"
+              DTS:From="Package\Foreach Loop Container\Earlier Versions\Get Stats"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Foreach Loop Container\Earlier Versions\Flag Unresponsive Servers"
+              DTS:Value="1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container\Earlier Versions.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{106F6DF5-A45D-40C9-9E56-4F6D6C88C797}"
+              DTS:From="Package\Foreach Loop Container\Earlier Versions\Get Stats"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\Foreach Loop Container\Earlier Versions\Update Server Details" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Test SQL Version"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{627FD813-CB4A-4DB1-959C-9A9DA535D87B}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Test SQL Version"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6853621C-A36F-4BAC-8DED-70D58A65A1D8}"
+              SQLTask:SqlStatementSource="select cast(SUBSTRING(CAST(serverproperty('ProductVersion') AS nvarchar), 1, CHARINDEX('.', CAST(serverproperty('ProductVersion') AS nvarchar)) - 1) as int) as MajorVersionId"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::MajorVersion" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7D804FDB-34B9-4E09-B1AC-482466FD64AE}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[User::MajorVersion] &lt;=10"
+          DTS:From="Package\Foreach Loop Container\Test SQL Version"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Earlier Versions" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AB4BBEE4-3584-4345-8919-99407FF408A6}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[User::MajorVersion] &gt; 10"
+          DTS:From="Package\Foreach Loop Container\Test SQL Version"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\2012 and Later" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{764FCEFA-A65F-4380-97AF-CC0628DF2138}"
+          DTS:ObjectName="{764FCEFA-A65F-4380-97AF-CC0628DF2138}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::ProcessingServerName" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E5439E57-7E10-4E84-9322-A288396E6736}"
+          DTS:ObjectName="{E5439E57-7E10-4E84-9322-A288396E6736}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::ServerId" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Active Server Lists"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{51E25821-26C4-4858-A9C3-8CD9B8C868D4}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Active Server Lists"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9D61E4EF-A7AB-4B04-88D1-59E0BE887415}"
+          SQLTask:SqlStatementSource="SELECT&#xA;&#x9;CAST(ServerId AS VARCHAR(3)) AS ServerId,&#xA;&#x9;CASE &#xA;&#x9;&#x9;WHEN InstanceName = 'MSSQLSERVER' THEN ServerName&#xA;&#x9;&#x9;ELSE ServerName + '\' + InstanceName&#xA;&#x9;END AS ServerName&#xA;&#x9;&#xA;FROM&#xA;&#x9;Server&#xA;WHERE&#xA;&#x9;ServerStatusId IN (1,2)&#xA;&#x9;AND&#xA;&#x9;VersionId &gt; 2"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ServerName" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB9FEBE2-4E02-4BDC-81FA-1666A8A920B3}"
+      DTS:From="Package\Get Active Server Lists"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Foreach Loop Container\2012 and Later\Flag Unresponsive Servers"
+          TopLeft="212.5,93" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Foreach Loop Container\2012 and Later\Get Stats"
+          TopLeft="131,9" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Foreach Loop Container\2012 and Later\Update Server Details"
+          TopLeft="3,97" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\2012 and Later.PrecedenceConstraints[Constraint]"
+          TopLeft="173,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.5,46"
+              Start="0,0"
+              End="-79.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7572815533981" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7572815533981"
+                    Point2="0,18.7572815533981"
+                    Point3="-4,18.7572815533981" />
+                  <mssgle:LineSegment
+                    End="-75.5,18.7572815533981" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.5,18.7572815533981"
+                    Point2="-79.5,18.7572815533981"
+                    Point3="-79.5,22.7572815533981" />
+                  <mssgle:LineSegment
+                    End="-79.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\2012 and Later.PrecedenceConstraints[Constraint 4]"
+          TopLeft="211,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,42"
+              Start="0,0"
+              End="103,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.126213592233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.126213592233"
+                    Point2="0,17.126213592233"
+                    Point3="4,17.126213592233" />
+                  <mssgle:LineSegment
+                    End="99,17.126213592233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99,17.126213592233"
+                    Point2="103,17.126213592233"
+                    Point3="103,21.126213592233" />
+                  <mssgle:LineSegment
+                    End="103,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="36.25865234375,22.126213592233,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="454,194"
+          Size="454,237"
+          Id="Package\Foreach Loop Container\2012 and Later"
+          TopLeft="202.5,114" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Foreach Loop Container\Earlier Versions\Flag Unresponsive Servers"
+          TopLeft="213,94" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Foreach Loop Container\Earlier Versions\Get Stats"
+          TopLeft="149,9" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Foreach Loop Container\Earlier Versions\Update Server Details"
+          TopLeft="9,94" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Earlier Versions.PrecedenceConstraints[Constraint]"
+          TopLeft="229,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93,43"
+              Start="0,0"
+              End="93,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5339805825243"
+                    Point2="0,17.5339805825243"
+                    Point3="4,17.5339805825243" />
+                  <mssgle:LineSegment
+                    End="89,17.5339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89,17.5339805825243"
+                    Point2="93,17.5339805825243"
+                    Point3="93,21.5339805825243" />
+                  <mssgle:LineSegment
+                    End="93,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.25865234375,22.5339805825243,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Earlier Versions.PrecedenceConstraints[Constraint 3]"
+          TopLeft="191,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91.5,43"
+              Start="0,0"
+              End="-91.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5339805825243"
+                    Point2="0,17.5339805825243"
+                    Point3="-4,17.5339805825243" />
+                  <mssgle:LineSegment
+                    End="-87.5,17.5339805825243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-87.5,17.5339805825243"
+                    Point2="-91.5,17.5339805825243"
+                    Point3="-91.5,21.5339805825243" />
+                  <mssgle:LineSegment
+                    End="-91.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="444,191"
+          Size="444,234"
+          Id="Package\Foreach Loop Container\Earlier Versions"
+          TopLeft="693,109" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Foreach Loop Container\Test SQL Version"
+          TopLeft="592,16" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="696.666666666667,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.333333333333,51"
+              Start="0,0"
+              End="218.333333333333,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7048567870486" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7048567870486"
+                    Point2="0,20.7048567870486"
+                    Point3="4,20.7048567870486" />
+                  <mssgle:LineSegment
+                    End="214.333333333333,20.7048567870486" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.333333333333,20.7048567870486"
+                    Point2="218.333333333333,20.7048567870486"
+                    Point3="218.333333333333,24.7048567870486" />
+                  <mssgle:LineSegment
+                    End="218.333333333333,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="101.166666666667,25.7048567870486,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="646.333333333333,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-216.833333333333,56"
+              Start="0,0"
+              End="-216.833333333333,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7347447073475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7347447073475"
+                    Point2="0,22.7347447073475"
+                    Point3="-4,22.7347447073475" />
+                  <mssgle:LineSegment
+                    End="-212.833333333333,22.7347447073475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-212.833333333333,22.7347447073475"
+                    Point2="-216.833333333333,22.7347447073475"
+                    Point3="-216.833333333333,26.7347447073475" />
+                  <mssgle:LineSegment
+                    End="-216.833333333333,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-116.416666666667,27.7347447073475,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1344,465"
+          Size="1344,508"
+          Id="Package\Foreach Loop Container"
+          TopLeft="130,630" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Get Active Server Lists"
+          TopLeft="704,524" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="799.25,566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
