@@ -1,0 +1,18 @@
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dacpac
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dll
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.pdb
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\Model.xml
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\refactor.xml
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\postdeploy.sql
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\predeploy.sql
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.dll
+I:\KB\SYS - MS SQL\VS Projects\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.pdb
+C:\Source\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dacpac
+C:\Source\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dll
+C:\Source\SQL_Brian_DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.pdb
+C:\Source\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.dll
+C:\Source\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.pdb
+C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\Model.xml
+C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\refactor.xml
+C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\postdeploy.sql
+C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\predeploy.sql
