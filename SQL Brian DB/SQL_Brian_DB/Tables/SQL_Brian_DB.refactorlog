@@ -203,4 +203,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="SupportExpiryDate" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="9cfa24a0-ddb6-4270-9f17-8535cc6c52fb" ChangeDateTime="05/15/2017 21:07:18">
+    <Property Name="ElementName" Value="[dbo].[InternalDBs].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InternalDBs]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServerId" />
+  </Operation>
 </Operations>

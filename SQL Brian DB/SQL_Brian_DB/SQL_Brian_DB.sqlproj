@@ -91,6 +91,7 @@
     <Build Include="Tables\Log_Database.sql" />
     <Build Include="Procedures\SSRS-ServerInfo.sql" />
     <Build Include="Procedures\SSRS-Database_Standards.sql" />
+    <Build Include="Tables\InternalDBs.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Tables\SQL_Brian_DB.refactorlog" />

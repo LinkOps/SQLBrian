@@ -16,3 +16,12 @@ C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\Model.xml
 C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\refactor.xml
 C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\postdeploy.sql
 C:\SOURCE\SQL_Brian_DB\SQL_Brian_DB\obj\Debug\predeploy.sql
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dacpac
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.dll
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\bin\Debug\SQL_Brian_DB.pdb
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\Model.xml
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\refactor.xml
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\postdeploy.sql
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\predeploy.sql
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.dll
+C:\Users\CulverM1\OneDrive\Documents\GitHub\SQLBrian\SQL Brian DB\SQL_Brian_DB\obj\Debug\SQL_Brian_DB.pdb
